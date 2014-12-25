@@ -20,7 +20,7 @@ gem 'jekyll_test_plugin_malicious'
 gem 'rouge', '~> 1.7'
 gem 'liquid-c', '~> 0.0.3'
 gem 'minitest' if RUBY_PLATFORM =~ /cygwin/
-gem 'test-unit' if RUBY_PLATFORM =~ /cygwin/
+gem 'test-unit' if RUBY_PLATFORM =~ /cygwin/ || RUBY_VERSION.start_with?("2.2")
 
 if ENV['BENCHMARK']
   gem 'rbtrace'
