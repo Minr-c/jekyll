@@ -12,7 +12,9 @@ fi
 
 RAKE_LIB_DIR=$(ruby -e "puts Gem::Specification.find_by_name('rake').gem_dir + '/lib'")
 
-test -d "${RAKE_LIB_DIR}" || gem install rake
+test -d "${RAKE_LIB_DIR}" || {
+  bundle show rake | cut -d'/' -f12 | cut -d'-' -f 2 | xargs gem install rake -v
+}
 
 set -x
 
